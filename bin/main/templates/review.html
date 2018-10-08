@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="${review.id}">Review</title>
+</head>
+	<style>
+		img{
+			display: block;
+			max-width: 685px;
+			max-height: 300px;
+			width: 40%;
+			margin-left: auto;
+			margin-right: auto;
+			padding: auto;
+			text-align: center;
+
+		}
+		body{
+			
+			background-color: #696969;
+		}
+		table, th, td{
+			border: 1px solid black;
+			margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none;
+		}
+		ul, li{
+			margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none;
+		}
+		header{
+			margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none
+		}
+		h1, h2, h3, h4{
+			margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none;
+		}
+	</style>
+<body>
+	<header>
+		<h1 th:text="${review.title}">Review</h1>
+		<nav>
+		</nav>
+	</header>
+	<main>
+		<figure>
+		<img th:src="|/images/${review.imageUrl2}.jpg|"/>
+		</figure>
+		<h2 th:text="${review.category}">Review Category</h2>
+		<h4 th:text="${review.content}">Review Content</h4>
+		<figure>
+			<img th:src="|/images/${review.drinkUrl}.jpg|"/>
+		</figure>
+		<div>
+			<table>
+				<tr>
+					<th>Cigar</th>
+					<th>Drink Type</th>
+					<th>Recommendation1</th>
+					<th>Recommendation2</th>
+				</tr>
+				<tr>
+					<td th:utext="${review.title}"></td>
+					<td th:utext="${review.drinkType}"></td>
+					<td th:utext="${review.drinkExp1}"></td>
+					<td th:utext="${review.drinkExp2}"></td>
+				</tr>
+			</table>
+		</div>
+	</main>
+	<footer>
+		<a href="http://localhost:8080/reviews">Back to home</a>
+		<small>&copy; WCCI 2018</small>
+	</footer>
+</body>
+</html>
+	

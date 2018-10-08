@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Cigar and Liquor reviews</title>
+</head>
+<style>
+		img{
+			display: block;
+			max-width: 685px;
+			max-height: 300px;
+			width: 40%;
+			margin-left: auto;
+			margin-right: auto;
+			padding: auto;
+			text-align: center;
+		}
+		table, th, td{
+			border: 1px solid black;
+			margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none;
+		}
+		ul, li{
+			margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none;
+			list-style: none;
+		}
+		body{
+			background-color: #696969;
+		}
+		header{
+			margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none
+		}
+	</style>
+<body>
+	<header>
+		<h1>Spirits & Stogee's </h1>
+	</header>
+	<article>
+		<ul>
+			<h3><li th:each="review : ${reviews}"><a th:href="|/reviews/${review.id}|" th:text="${review.title}"></a><img th:src="|/images/${review.imageUrl}.jpg|"></h3>
+		</ul>
+	</article>
+	<div>
+		<table>
+			<tr>
+				<th>Cigar</th>
+				<th>Drink Type</th>
+				<th>Recommendation1</th>
+				<th>Recommendation2</th>
+			</tr>
+			<tr th:each ="review: ${reviews}">
+				<td th:utext="${review.title}"></td>
+				<td th:utext="${review.drinkType}"></td>
+				<td th:utext="${review.drinkExp1}"></td>
+				<td th:utext="${review.drinkExp2}"></td>
+			</tr>
+		</table>
+	</div>
+	<footer>
+		<small>&copy; WCCI 2018</small>
+	</footer>
+</body>
+</html>
